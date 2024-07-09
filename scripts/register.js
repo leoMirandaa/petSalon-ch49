@@ -1,56 +1,68 @@
-console.log("register.js");
+let pets = [];
 
-// Pet Registration:
-
-// In the pets array, create 3 pets using object literals, each with the following properties:
-// Name
-// Age
-// Gender
-// Service
-// Breed
-
-// 2. Display Registered Pets Count:
-
-// 3. Display Pet Names
-// Create a JavaScript function that iterates through the pets array using a for loop.
-// For each pet in the array, extract and display its name in the HTML. You can create an area in the HTML to list these names dynamically.
-
-// 4. Styling and Content:
-
-// Extra challenge: Create a function to calculate the average of the pet's ages.
-
-let pets = [
-  {
-    name: "Scobby",
-    age: 80,
-    gender: "Male",
-  },
-  {
-    name: "Scrappy",
-    age: 70,
-    gender: "Male",
-  },
-  {
-    name: "Tweety",
-    age: 85,
-    gender: "Female",
-  },
-  {
-    name: "Speedy",
-    age: 82,
-    gender: "Male",
-  },
-];
-
-function displayPetCount() {
-  //hint: length
-  //pets
+//create the Pet Constructor
+// parameters <--local variables-->
+function Pet(n, a, g, b) {
+  this.name = n;
+  this.age = a;
+  this.gender = g;
+  this.breed = b;
 }
 
-function displayNames() {
-  document.getElementById("petList").innerHTML += `<li>${pets[0].name}`;
-  document.getElementById("petList").innerHTML += `<li>${pets[1].name}`;
+function isValid(aPet) {
+  let validation = true; //assuming the pet is valid
+
+  if (aPet.name == "") {
+    // is the name empty?
+    //if the answer was yes, you will be executing this line
+    alert("Please add a name to the pet");
+    validation = false;
+  }
+
+  return validation;
 }
 
+function register() {
+  let inputName = document.getElementById("txtName").value;
+  let inputAge = document.getElementById("txtAge").value;
+  let inputGender = document.getElementById("txtGender").value;
+  let inputBreed = document.getElementById("txtBreed").value;
+  // create the obj
+  let newPet = new Pet(inputName, inputAge, inputGender, inputBreed);
+
+  if (isValid(newPet)) {
+    //pushin the newpet to the array
+    pets.push(newPet);
+    displayTable(); //displaying the array
+    displayPetCount(); // this is a function
+    clearForm();
+  }
+}
+function clearForm() {
+  document.getElementById("txtName").value = "";
+  document.getElementById("txtAge").value = "";
+  document.getElementById("txtGender").value = "";
+  document.getElementById("txtBreed").value = "";
+}
 // Extra challenge
 function calculateAverage() {}
+
+function deletePet(aPet) {
+  console.log("Deleting pet ... " + aPet);
+  document.getElementById(aPet).remove(); //removing from html
+  pets.splice(aPet, 1); //remove from array
+  displayTable();
+  displayPetCount();
+}
+
+function init() {
+  //the initialization function
+  let pet1 = new Pet("Scooby", 99, "Male", "Dane");
+  let pet2 = new Pet("Scrappy", 99, "Male", "Dane");
+  let pet3 = new Pet("Tweety", 99, "Male", "Dane");
+  pets.push(pet1, pet2, pet3);
+  displayPetCount();
+  displayTable();
+}
+
+window.onload = init; //waiting for render the HTML

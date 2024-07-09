@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles/mystyle.css">
+    <title>Register</title>
+</head>
+<body>
+    <header>
+        <h1>The Fashion Pet</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="register.html">Register</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2>Register a new pet</h2>
+        <div class="form-container">
+            <div class="mb-3">
+                <label class="form-label">Name:*</label>
+                <input class="form-control" type="text" id="txtName">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Age:</label>
+                <input class="form-control" type="number" id="txtAge">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Gender:</label>
+                <input class="form-control" type="text" id="txtGender">
+            </div>
+            <div class="mb-3">
+                <label>Breed:</label>
+                <input class="form-control" type="text" id="txtBreed">
+            </div>
+            
+            <div class="btn-container">
+                <button class="btn btn-dark" onclick="register();">Register</button>
+            </div>
+        </div>
+      </main>
+
+      <section class="container">
+        <h2>Registered pets</h2>
+        <p id="total"></p>
+        
+        <div id="pets">
+
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>#</td>
+                    <td>Name</td>
+                    <td>Age</td>
+                    <td>Gender</td>
+                    <td>Breed</td>
+                    <td>Actions</td>
+                </tr>
+            </thead>
+            <tbody id="petTable">
+                
+            </tbody>
+        </table>
+      </section>
+      <script src="./scripts/register.js"></script>
+      <script src="./scripts/display.js"></script>
+</body>
+</html>
