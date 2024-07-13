@@ -1,3 +1,45 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    /* background-color: rgb(254, 249, 250) */
+}
+
+header {
+    background-color: rgb(23, 23, 23);
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-image: url('../pink-bg.jpg');
+    background-position: 0 50%; */
+    margin-bottom: 32px;
+}
+
+h1 {
+    font-size: 80px;
+    font-weight: bold;
+    color: white;
+    /* -webkit-text-stroke: 2px white; */
+}
+
+nav {
+    display: flex;
+    gap: 24px;
+    margin-top: 18px;
+}
+
+nav a {
+    font-size: 24px;
+    text-decoration: none;
+    color: white;
+    /* text-shadow: #9a404f 1px 0 10px; */
+    text-shadow: rgb(148, 148, 148) 1px 0 8px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
 
 .pet{
     background-color: #dedede;
@@ -9,4 +51,20 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 10px;
+}
+
+/* Notifications */
+.alert-error{
+    background-color: #FEE7EF;
+}
+
+/*form*/
+.form-container{
+    /* background-color: rgb(255, 251, 252);
+    border: solid 1px rgb(255, 212, 219); */
+    border: solid 1px rgb(200, 200, 200);
+    width: 60%;
+    margin: 1rem auto;
+    border-radius: .5rem;
+    padding:2rem;
 }
